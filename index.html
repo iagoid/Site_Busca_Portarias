@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/sitStyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Buscador - Portarias</title>
+    <link rel = "shortcut icon"  href = "img/logo_vertical.png" />
+  </head>
+  <header style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
+  	<img src="img/header-default.png" style=" margin-left: 5vw;margin-top: 2.5vh">
+  	<div style="width:-device-width;min-height: 4vh;background-color: green ; margin-top: 1.5vh">
+  		<nav style="float: right; margin-top: 0.6vh">
+  			<ul class="menuTop">
+  				<li>
+  					<a href="https://ifrs.edu.br/">IFRS - Oficial</a>
+  				</li>
+  				<li>
+  					<a href="https://ifrs.edu.br/ibiruba/">IFRS - Campus Ibiruba</a>
+  				</li>
+  				<li>
+  					<a href="https://ibiruba.ifrs.edu.br/site/">Ibiruba - Site Antigo</a>
+  				</li>
+  			</ul>
+  		</nav>
+  	</div>
+  </header>
+  <body>
+    <section class="container-fluid ababusca" style="width: -device-width;min-height: 70vh;">
+    	<div class="d-flex justify-content-center " style="margin-top: 10vh">
+        <div class="searchbar">
+          <input class="search_input" type="text" id="textpesquisado" name="" placeholder="Search...">
+          <a href="#abresult" id="pesquisar" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </section>
+    <section class="container-fluid abresult" id="abresult" style="width: -device-width;max-height: 63vh;margin-top: 5vh">
+    	<table id="example" class="display" style="width:100%">
+        <thead style="background-color: green;color: white">
+            <tr style="text-align: center;">
+                <th>link</th>
+                <th>Nº Portaria</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/script_page.js"></script>
+  </body>
+</html>
