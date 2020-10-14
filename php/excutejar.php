@@ -5,7 +5,7 @@ $palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $pala
 if ($palavra != null) {
 	unset($arrayDados);
 	$arrayDados = array();
-	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query '.trim($palavra).'' , $saida);
+	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
 	// var_dump(count($saida));
 	
@@ -16,7 +16,9 @@ if ($palavra != null) {
 		// echo"<br><br>";
 		// exit();
 		// die();
-		if (count($json) > 0) {
+		$jsonCount = (is_array($json) ? count($json) : 0);
+
+		if ($jsonCount > 0) {
 			foreach ($json as $key => $value) {	
 				$arrayDados[$key]['datePort'] = str_replace("\/", "-", $value->datePort) ;
 				if ($value->numPort > 0) {
