@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'silva';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = '';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -35,7 +35,7 @@ if ($palavra != null) {
 	$stringarray = json_encode($arrayDados);
 	// var_dump($stringarray);
 	unlink("".__DIR__."/archives/arquivo.txt");
-	$arquivo = fopen("".__DIR__."/archives/arquivo.txt", "ab");
+	$arquivo = fopen("".__DIR__."/archives/arquivo.txt", "w+");
 	fwrite($arquivo, $stringarray);
 	fclose($arquivo);
 
