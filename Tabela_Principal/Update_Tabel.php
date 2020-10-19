@@ -5,6 +5,7 @@ $columns = array(
 	array( 'db' => 'numPort','dt' => 1),
 	array( 'db' => 'conteudo', 'dt' => 2),
 	array( 'db' => 'datePort', 'dt' => 3),
+	array( 'db' => 'DocRelevante', 'dt' => 4),
 	
 	
 );

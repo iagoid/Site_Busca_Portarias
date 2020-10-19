@@ -1,9 +1,10 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'edimar';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'silva';
 
 if ($palavra != null) {
 	unset($arrayDados);
+	$classificacao = 1;
 	$arrayDados = array();
 	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
@@ -27,9 +28,15 @@ if ($palavra != null) {
 				}else{
 					$arrayDados[$key]['numPort'] = 00000;
 				}
-				// $arrayDados['numPort'][] = $value->numPort;
 				$arrayDados[$key]['nameDoc'] = $value->nameDoc;
-				// $arrayDados[$key]['conteudo'] = $value->conteudo;
+
+				$arrayDados[$key]['DocRelevante'] = 
+					"<select name='relevancia' id='relevancia-$classificacao'>
+							<option value='nao_avaliado'></option>
+							<option value='sim'>Sim</option>
+							<option value='nao'>Não</option>
+					</select>";
+				$classificacao++;
 
 
 				// Converter para UTF-8
@@ -38,7 +45,7 @@ if ($palavra != null) {
 				$posicao = strripos($conteudo, $palavra);
 				$conteudoSeparado =  substr($conteudo, $posicao, 500);
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
-				var_dump($arrayDados[$key]['conteudo']);
+				// var_dump($arrayDados[$key]['conteudo']);
 			}
 		}
 	}
