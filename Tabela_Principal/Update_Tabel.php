@@ -3,8 +3,9 @@
 $columns = array(
 	array( 'db' => 'nameDoc', 'dt' => 0),
 	array( 'db' => 'numPort','dt' => 1),
-	array( 'db' => 'nameDoc', 'dt' => 2),
-	array( 'db' => 'datePort', 'dt' => 3)
+	array( 'db' => 'conteudo', 'dt' => 2),
+	array( 'db' => 'datePort', 'dt' => 3),
+	
 	
 );
 

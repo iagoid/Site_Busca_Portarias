@@ -1,19 +1,19 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'silva';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'edimar';
 
 if ($palavra != null) {
 	unset($arrayDados);
 	$arrayDados = array();
 	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
-	var_dump($saida);
+	// var_dump($saida);
 	
 	for ($i=0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
 		
 		$json = json_decode(mb_convert_encoding($saida[$i], "UTF-8", "auto"));
-		var_dump($json);
+		// var_dump($json);
 		// var_dump(utf8_encode($saida[1]));
 		// echo"<br><br>";
 		// exit();
@@ -30,6 +30,15 @@ if ($palavra != null) {
 				// $arrayDados['numPort'][] = $value->numPort;
 				$arrayDados[$key]['nameDoc'] = $value->nameDoc;
 				// $arrayDados[$key]['conteudo'] = $value->conteudo;
+
+
+				// Converter para UTF-8
+				// Mostrar o texto cortado
+				$conteudo = $value->conteudo;
+				$posicao = strripos($conteudo, $palavra);
+				$conteudoSeparado =  substr($conteudo, $posicao, 500);
+				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
+				var_dump($arrayDados[$key]['conteudo']);
 			}
 		}
 	}
