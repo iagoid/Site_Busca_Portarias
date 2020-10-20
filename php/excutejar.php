@@ -31,7 +31,7 @@ if ($palavra != null) {
 				$arrayDados[$key]['nameDoc'] = $value->nameDoc;
 
 				$arrayDados[$key]['DocRelevante'] = 
-					"<select name='relevancia' id='relevancia-$classificacao'>
+					"<select name='relevancia-$classificacao' id='relevancia-$classificacao' onChange=seeButton()>
 							<option value='nao_avaliado'></option>
 							<option value='sim'>Sim</option>
 							<option value='nao'>Não</option>

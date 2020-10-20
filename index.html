@@ -14,6 +14,18 @@
     <title>Buscador - Portarias</title>
     <link rel = "shortcut icon"  href = "img/logo_vertical.png" />
 
+    <style>
+      #form-button {
+        background-color: green;
+        color: white;
+        position:  fixed;
+        right: 20px;
+        top: 20px;
+        padding: 20px;
+        border: black 2px solid;
+        display: none;
+    }
+    </style>
   </head>
   <header style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
   	<img src="img/header-default.png" style=" margin-left: 5vw;margin-top: 2.5vh">
@@ -43,19 +55,26 @@
       </div>
     </section>
     <section class="container-fluid abresult" id="abresult" style="width: -device-width;max-height: 63vh;margin-top: 5vh">
+      <form action="#####" method="post">
     	<table id="example" class="display" style="width:100%">
         <thead style="background-color: green;color: white">
-            <tr style="text-align: center;">
-              <th>link</th>
-              <th>Nº Portaria</th>
-              <th>Resumo da Portaria</th>
-              <th>Data</th>
-              <th>Documento Relevante?</th>
-              <th>PDF</th>
-            </tr>
-        </thead>
-    </table>
+
+              <tr style="text-align: center;">
+                <th>link</th>
+                <th>Nº Portaria</th>
+                <th>Resumo da Portaria</th>
+                <th>Data</th>
+                <th>Documento Relevante?</th>
+                <th>PDF</th>
+              </tr>
+            </thead>
+          </table>
+          <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Busca Concluida</button>
+        </form>
+    
     </section>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -65,5 +84,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/script_page.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
   </body>
 </html>
