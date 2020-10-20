@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'silva';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'edimar 2019';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -8,7 +8,7 @@ if ($palavra != null) {
 	$arrayDados = array();
 	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
-	// var_dump($saida);
+	var_dump($saida);
 	
 	for ($i=0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
@@ -31,7 +31,7 @@ if ($palavra != null) {
 				$arrayDados[$key]['nameDoc'] = $value->nameDoc;
 
 				$arrayDados[$key]['DocRelevante'] = 
-					"<select name='relevancia-$classificacao' id='relevancia-$classificacao' onChange=seeButton()>
+					"<select class='relevancia' name='relevancia-$classificacao' id='relevancia-$classificacao' onChange=seeButton()>
 							<option value='nao_avaliado'></option>
 							<option value='sim'>Sim</option>
 							<option value='nao'>Não</option>

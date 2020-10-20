@@ -63,7 +63,18 @@ $(document).ready(function() {
 
   $('#example tbody').on('click', 'tr', function () {
         var data = tabela.row( this ).data();
+        alert(data)
         window.open(data[0]);
         // alert( 'You clicked on '+data[0]+'\'s row' );
     } );
+
+  // $( ".relevancia" ).on('change', function() {
+  //     alert("aaaaaaaaaaaaaaaaaaa");
+  //     $('#form-button').fadeIn(3000);
+  // })
 })
+
+
+  function seeButton() {
+      $('#form-button').fadeIn(3000);
+  }
