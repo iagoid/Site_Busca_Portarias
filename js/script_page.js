@@ -61,9 +61,8 @@ $(document).ready(function() {
 	  	}
 	});
 
-  $('#example tbody').on('click', 'tr', function () {
-        var data = tabela.row( this ).data();
-        alert(data)
+  $('#example tbody').on('click', 'tr button', function () {
+        var data = tabela.row("#example tbody tr").data();
         window.open(data[0]);
         // alert( 'You clicked on '+data[0]+'\'s row' );
     } );
