@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'silva';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = '2018';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -51,7 +51,7 @@ if ($palavra != null) {
 				} 
 				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1);
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
-				// var_dump($arrayDados);
+				var_dump($arrayDados);
 			}
 		}
 	}
