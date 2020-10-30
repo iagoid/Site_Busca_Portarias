@@ -1,0 +1,50 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.5deb2
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysqlserver.cvguwckijcya.sa-east-1.rds.amazonaws.com:3306
+-- Tempo de geração: 30-Out-2020 às 15:24
+-- Versão do servidor: 8.0.19
+-- versão do PHP: 7.4.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `portarias`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `portarias`
+--
+
+CREATE TABLE `portarias` (
+  `pesquisa` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc1` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc2` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc3` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc4` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc5` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc6` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc7` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc8` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc9` text COLLATE utf8_unicode_ci NOT NULL,
+  `doc10` text COLLATE utf8_unicode_ci NOT NULL,
+  `ip` text COLLATE utf8_unicode_ci NOT NULL,
+  `horario` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
