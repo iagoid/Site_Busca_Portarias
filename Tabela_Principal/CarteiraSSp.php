@@ -4,6 +4,7 @@ class SSPCA {
 
 	static function data_outputCA ( $columns, $data )
 	{
+		// var_dump($data);
 		$out = array();
 		for ( $i=0, $ien=count($data) ; $i<$ien ; $i++ ) {
 			$row = array();
@@ -19,7 +20,9 @@ class SSPCA {
 			}
 			$out[] = $row;
 		}
+		// var_dump($out);
 		return $out;
+
 	}
 	
 	static function simpleCA ( $request, $urlGetDoc,  $columns )

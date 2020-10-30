@@ -46,33 +46,34 @@
   	</div>
   </header>
   <body>
-    <section class="container-fluid ababusca" style="width: -device-width;min-height: 70vh;">
-    	<div class="d-flex justify-content-center " style="margin-top: 10vh">
-        <div class="searchbar">
-          <input class="search_input" type="text" id="textpesquisado" name="" placeholder="Search...">
-          <a href="#abresult" id="pesquisar" class="search_icon"><i class="fas fa-search"></i></a>
-        </div>
-      </div>
-    </section>
-    <section class="container-fluid abresult" id="abresult" style="width: -device-width;max-height: 63vh;margin-top: 5vh">
-      <form action="#####" method="post">
-    	<table id="example" class="display" style="width:100%">
-        <thead style="background-color: green;color: white">
+    <form enctype="multipart/form-data" action="php/forms.php" method="post">
 
-              <tr style="text-align: center;">
-                <th>link</th>
-                <th>Nº Portaria</th>
-                <th>Resumo da Portaria</th>
-                <th>Data</th>
-                <th>Documento Relevante?</th>
-                <th>PDF</th>
-              </tr>
-            </thead>
-          </table>
-          <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Busca Concluida</button>
-        </form>
-    
-    </section>
+      <section class="container-fluid ababusca" style="width: -device-width;min-height: 70vh;">
+        <div class="d-flex justify-content-center " style="margin-top: 10vh">
+          <div class="searchbar">
+            <input class="search_input" type="text" id="textpesquisado" name="pesquisa" id="pesquisa" placeholder="Search...">
+            <a href="#abresult" id="pesquisar" class="search_icon"><i class="fas fa-search"></i></a>
+          </div>
+        </div>
+      </section>
+      <section class="container-fluid abresult" id="abresult" style="width: -device-width;max-height: 63vh;margin-top: 5vh">
+        <table id="example" class="display" style="width:100%">
+          <thead style="background-color: green;color: white">
+
+                <tr style="text-align: center;">
+                  <th>link</th>
+                  <th>Nº Portaria</th>
+                  <th>Resumo da Portaria</th>
+                  <th>Data</th>
+                  <th>Documento Relevante?</th>
+                  <th>PDF</th>
+                </tr>
+              </thead>
+            </table>
+            <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Busca Concluida</button>
+            
+          </section>
+    </form>
 
 
 

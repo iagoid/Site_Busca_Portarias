@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = '2018';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Edimar';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -13,7 +13,7 @@ if ($palavra != null) {
 	for ($i=0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
 		
-		$json = json_decode(mb_convert_encoding(utf8_encode($saida[$i]), "UTF-8", "auto"));
+		$json = json_decode(utf8_encode($saida[$i]));
 		// var_dump($json);
 		// var_dump(utf8_encode($saida[1]));
 		// echo"<br><br>";
@@ -51,10 +51,11 @@ if ($palavra != null) {
 				} 
 				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1);
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
-				var_dump($arrayDados);
 			}
 		}
 	}
+	// var_dump($arrayDados);
+
 
 	$stringarray = json_encode($arrayDados);
 	// var_dump($stringarray);
