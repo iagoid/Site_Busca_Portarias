@@ -64,7 +64,7 @@ $(document).ready(function() {
   $('#example tbody').on('click', 'tr button', function () {
         var element = $(this).parent().prev()
         var data = tabela.row(element).data();
-        window.open(data[0]);
+        window.open(data[5]);
         // alert( 'You clicked on '+data[0]+'\'s row' );
     } );
 

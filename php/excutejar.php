@@ -22,6 +22,8 @@ if ($palavra != null) {
 		$jsonCount = (is_array($json) ? count($json) : 0);
 		if ($jsonCount > 0) {
 			foreach ($json as $key => $value) {	
+				$arrayDados[$key]['classificacao'] = $classificacao;
+
 				$arrayDados[$key]['datePort'] = str_replace("\/", "-", $value->datePort) ;
 				if ($value->numPort > 0) {
 					$arrayDados[$key]['numPort'] = $value->numPort;
