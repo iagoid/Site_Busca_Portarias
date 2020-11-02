@@ -6,7 +6,7 @@ if ($palavra != null) {
 	unset($arrayDados);
 	$classificacao = 1;
 	$arrayDados = array();
-	$shell = exec('java -jar "C:\Users\Igor\Documents\NetBeansProjects\PROJETO_BUSCADOR-PORTARIAS-\Buscador_Portarias\dist\Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
+	$shell = exec('java -jar "C://Users//Iago//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
 	// var_dump($saida);
 	
@@ -22,13 +22,15 @@ if ($palavra != null) {
 		$jsonCount = (is_array($json) ? count($json) : 0);
 		if ($jsonCount > 0) {
 			foreach ($json as $key => $value) {	
+				$arrayDados[$key]['posicao'] = $classificacao;
 				$arrayDados[$key]['datePort'] = str_replace("\/", "-", $value->datePort) ;
 				if ($value->numPort > 0) {
 					$arrayDados[$key]['numPort'] = $value->numPort;
 				}else{
 					$arrayDados[$key]['numPort'] = 00000;
 				}
-				$arrayDados[$key]['nameDoc'] = $value->nameDoc;
+				$url = $value->nameDoc;
+				$arrayDados[$key]['nameDoc'] = $url;
 
 				$arrayDados[$key]['DocRelevante'] = 
 					"<select class='relevancia' name='relevancia-$classificacao' id='relevancia-$classificacao' onChange=seeButton()>

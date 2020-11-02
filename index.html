@@ -24,6 +24,18 @@
         padding: 20px;
         border: black 2px solid;
         display: none;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    #objetivo {
+        position:  fixed;
+        left: 20px;
+        top: 20px;
+        display: none;
+        width: 75vw;
+        height: 100px;
+        background-color: #EFF0F1;
+
     }
     </style>
   </head>
@@ -46,7 +58,7 @@
   	</div>
   </header>
   <body>
-    <form enctype="multipart/form-data" action="php/forms.php" method="post">
+    <form enctype="multipart/form-data" action="php/forms.php" method="post" id="formulario">
 
       <section class="container-fluid ababusca" style="width: -device-width;min-height: 70vh;">
         <div class="d-flex justify-content-center " style="margin-top: 10vh">
@@ -61,7 +73,7 @@
           <thead style="background-color: green;color: white">
 
                 <tr style="text-align: center;">
-                  <th>link</th>
+                  <th>Posicao</th>
                   <th>Nº Portaria</th>
                   <th>Resumo da Portaria</th>
                   <th>Data</th>
@@ -70,7 +82,11 @@
                 </tr>
               </thead>
             </table>
-            <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Busca Concluida</button>
+            <textarea name="objetivo" id="objetivo" placeholder="O que você estava buscando?"></textarea>
+            <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Concluir</button>
+            
+
+
             
           </section>
     </form>

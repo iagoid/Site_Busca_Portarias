@@ -64,7 +64,7 @@ $(document).ready(function() {
   $('#example tbody').on('click', 'tr button', function () {
         var element = $(this).parent().prev()
         var data = tabela.row(element).data();
-        window.open(data[0]);
+        window.open(data[5]);
         // alert( 'You clicked on '+data[0]+'\'s row' );
     } );
 
@@ -72,9 +72,48 @@ $(document).ready(function() {
   //     alert("aaaaaaaaaaaaaaaaaaa");
   //     $('#form-button').fadeIn(3000);
   // })
+
+
+  var score = []
+  var urls = []
+  var relevantes = []
+  $("#formulario").submit(function(e){
+      e.preventDefault()
+
+      var NumberElements = $(`tr button`).parent().prev()
+
+      for (let i = 0; i < NumberElements.length && i<10; i++) {
+        var element = $(`tr button:eq(${i})`).parent().prev()
+        var data = tabela.row(element).data();
+        urls.push(data[5])
+        score.push(data[0])
+
+        relevantes.push($(`#relevancia-${i+1}`).val())
+      }
+      
+      // console.log(urls)
+      // console.log(relevantes)
+      $.ajax({
+        url: "php/forms.php",
+        type: "POST",
+        data: {score:score, urls:urls, relevantes:relevantes},
+        dataType: "html"
+    
+        }).done(function(resposta) {
+            console.log(resposta);
+        
+        }).fail(function(jqXHR, textStatus ) {
+            console.log("Request failed: " + textStatus);
+        
+        }).always(function() {
+            console.log("completou");
+        });
+    })
 })
 
 
   function seeButton() {
       $('#form-button').fadeIn(3000);
+      $('#objetivo').fadeIn(3000);
   }
+  
