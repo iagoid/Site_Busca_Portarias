@@ -74,33 +74,39 @@ $(document).ready(function() {
   // })
 
 
-  var score = []
-  var urls = []
-  var relevantes = []
+
+  
   $("#formulario").submit(function(e){
+      var score = []
+      var urls = []
+      var relevantes = []
       e.preventDefault()
 
       var NumberElements = $(`tr button`).parent().prev()
 
-      for (let i = 0; i < NumberElements.length && i<10; i++) {
+      for (let i = 0; i < NumberElements.length; i++) {
         var element = $(`tr button:eq(${i})`).parent().prev()
         var data = tabela.row(element).data();
-        urls.push(data[5])
-        score.push(data[0])
+        relevancia = $(`#relevancia-${data[0]}`).val()
 
-        relevantes.push($(`#relevancia-${i+1}`).val())
+        if(relevancia != "nao_avaliado"){
+          relevantes.push(relevancia)
+          urls.push(data[5])
+          score.push(data[0])
+        }   
       }
       
-      // console.log(urls)
-      // console.log(relevantes)
+      var pesquisa = $("#textpesquisado").val()
+      var objetivo = $("#objetivo").val()
+
       $.ajax({
         url: "php/forms.php",
         type: "POST",
-        data: {score:score, urls:urls, relevantes:relevantes},
+        data: {score:score, urls:urls, relevantes:relevantes, pesquisa:pesquisa, objetivo:objetivo},
         dataType: "html"
     
         }).done(function(resposta) {
-            console.log(resposta);
+            // console.log(resposta);
         
         }).fail(function(jqXHR, textStatus ) {
             console.log("Request failed: " + textStatus);
@@ -108,12 +114,14 @@ $(document).ready(function() {
         }).always(function() {
             console.log("completou");
         });
+        $('#form-button').hide(500);
+        $('#objetivo').hide(500);
     })
 })
 
 
   function seeButton() {
-      $('#form-button').fadeIn(3000);
-      $('#objetivo').fadeIn(3000);
+      $('#form-button').fadeIn(1500);
+      $('#objetivo').fadeIn(1500);
   }
   

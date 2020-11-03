@@ -2,14 +2,14 @@
 require_once 'dbconnect.php';
 
 
+    $pesquisa = $_POST['pesquisa'];
+    $objetivo = $_POST['objetivo'];
     $score = $_POST['score'];
     $urls = $_POST['urls'];
     $relevantes = $_POST['relevantes'];
-
-    isset($_POST['pesquisa']) ? $pesquisa = $_POST['pesquisa'] : $pesquisa="Inexistente";
+    
     $ip = $_SERVER['REMOTE_ADDR'];
     $horario = date('Y-m-d H:i');
-    isset($_POST['objetivo']) ? $objetivo = $_POST['objetivo'] : $objetivo="Não relatado";
     
 
     for ($i=0; $i < sizeof($urls); $i++) { 
