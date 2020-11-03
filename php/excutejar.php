@@ -6,7 +6,7 @@ if ($palavra != null) {
 	unset($arrayDados);
 	$classificacao = 1;
 	$arrayDados = array();
-	$shell = exec('java -jar "C://Users//Iago//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
+	$shell = exec('java -jar "C://Users//Igor//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
 	// var_dump($saida);
 	

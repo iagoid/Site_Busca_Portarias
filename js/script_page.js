@@ -84,16 +84,14 @@ $(document).ready(function() {
 
       var NumberElements = $(`tr button`).parent().prev()
 
-      for (let i = 0; i < NumberElements.length; i++) {
+      for (let i = 0; i < NumberElements.length && i <= 10; i++) {
         var element = $(`tr button:eq(${i})`).parent().prev()
         var data = tabela.row(element).data();
         relevancia = $(`#relevancia-${data[0]}`).val()
 
-        if(relevancia != "nao_avaliado"){
-          relevantes.push(relevancia)
-          urls.push(data[5])
-          score.push(data[0])
-        }   
+      relevantes.push(relevancia)
+      urls.push(data[5])
+      score.push(data[0])
       }
       
       var pesquisa = $("#textpesquisado").val()
