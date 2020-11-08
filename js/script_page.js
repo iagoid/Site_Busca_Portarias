@@ -114,6 +114,9 @@ $(document).ready(function() {
         });
         $('#form-button').hide(500);
         $('#objetivo').hide(500);
+        $('html, body').animate({scrollTop:0}, 'slow');
+        $('#success-submit').fadeIn(2000);
+        window.setTimeout('location.reload()', 5000)
     })
 })
 
