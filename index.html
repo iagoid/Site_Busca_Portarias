@@ -38,13 +38,12 @@
 
     }
     #success-submit{
-        position:  fixed;
-        left: 30%;
-        top: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      display: none;
     }
     </style>
   </head>
@@ -96,9 +95,9 @@
             <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Concluir</button>
 
             <div id="success-submit">
-                <img src="img/success.png" alt="success" style="margin-left: 30%;">
+                <img src="img/success.png" alt="success" style="margin-left: 80px;">
                 <h1>
-                  Sua avaliação foi registrada
+                  Avaliação Registrada
                 </h1>
             </div>
             

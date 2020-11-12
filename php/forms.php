@@ -1,6 +1,6 @@
 <?php
 require_once 'dbconnect.php';
-
+    date_default_timezone_set('America/Sao_Paulo');
 
     $pesquisa = $_POST['pesquisa'];
     $objetivo = $_POST['objetivo'];
