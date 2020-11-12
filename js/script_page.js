@@ -5,6 +5,7 @@ $(document).ready(function() {
   var tabela = "";
   var urlDoc  = 'Tabela_Principal/Update_Tabel.php';
     tabela = $("#example").DataTable({
+        "lengthMenu": [[25, 50, 100], [25, 50, 100]],
         "processing": true,
         "ajax": urlDoc,
         "language": {
@@ -34,7 +35,7 @@ $(document).ready(function() {
           }, 1000, function(){
             window.location.hash = hash;
             $.post(urlDocRequest,{wrdConsult:textpesq.val().trim()},function(result){
-              alert(result)
+              // alert(result)
               if (result == "true") {
                   tabela.ajax.url(urlDoc).load();
               }
