@@ -1,0 +1,52 @@
+.btn-green {
+    background-color: green;
+    color: white;
+    border: solid 2px #151515;
+}
+
+.btn-green:hover {
+    background-color: #00420c;
+    color: white;
+    border: solid 2px black;
+}
+
+
+#form-button {
+    position:  fixed;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
+    border: black 2px solid;
+    display: none;
+    font-size: 30px;
+    font-weight: 700;
+}
+#objetivo {
+    position:  fixed;
+    left: 20px;
+    top: 20px;
+    display: none;
+    width: 75vw;
+    height: 100px;
+    background-color: #EFF0F1;
+
+}
+#success-submit{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+
+.terms-title {
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+
+#btn-access {
+    margin-bottom: 50px;
+}

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -12,39 +12,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Buscador - Portarias</title>
+    <link rel="stylesheet" href="css/development_style.css">
+
     <link rel = "shortcut icon"  href = "img/logo_vertical.png" />
 
     <style>
-      #form-button {
-        background-color: green;
-        color: white;
-        position:  fixed;
-        right: 20px;
-        top: 20px;
-        padding: 20px;
-        border: black 2px solid;
-        display: none;
-        font-size: 30px;
-        font-weight: 700;
-    }
-    #objetivo {
-        position:  fixed;
-        left: 20px;
-        top: 20px;
-        display: none;
-        width: 75vw;
-        height: 100px;
-        background-color: #EFF0F1;
-
-    }
-    #success-submit{
-      position:absolute;
-      top:50%;
-      left:50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%);
-      display: none;
-    }
+      
     </style>
   </head>
   <header style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
@@ -92,7 +65,7 @@
             </table>
 
             <textarea name="objetivo" id="objetivo" required placeholder="O que você estava buscando?"></textarea>
-            <button type="submit" class="btn" id="form-button" name="btn-cadastrar">Concluir</button>
+            <button type="submit" class="btn btn-green" id="form-button" name="btn-cadastrar">Concluir</button>
 
             <div id="success-submit">
                 <img src="img/success.png" alt="success" style="margin-left: 80px;">
@@ -100,10 +73,6 @@
                   Avaliação Registrada
                 </h1>
             </div>
-            
-
-
-            
           </section>
     </form>
 
