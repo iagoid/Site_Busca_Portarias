@@ -19,11 +19,12 @@
 	z-index: -1;
 }
 
+/* 
 .searchbar{
     margin-bottom: auto;
     margin-top: auto;
     height: 60px;
-    background-color: green; /*#353b48*/
+    background-color: green; /*#353b48
     border-radius: 30px;
     padding: 10px;
     }
@@ -61,4 +62,4 @@
     border-radius: 50%;
     color:white;
     text-decoration:none;
-    }
+    } */
