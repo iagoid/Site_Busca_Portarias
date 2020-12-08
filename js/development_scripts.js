@@ -5,12 +5,11 @@ $(document).ready(function () {
     var btn_access = $('#btn-access')
 
     input_check.on('click', function () {
-        console.log("aaaaaaaaaaa")
         if ($("#access_terms").is(":checked") == true) {
             btn_access.prop("disabled", false);
             btn_access.html('Participar do experimento');
-
         }
+
         else {
             $('#btn-access').prop("disabled", true);
             btn_access.html('Aceite os termos para continuar');
@@ -20,15 +19,43 @@ $(document).ready(function () {
     
 
     // Close Modal
-    var close_modalX = $(".fa-times")
-    var close_modalBtn = $(".close-btn")
+    var modal = $(".my-modal")
+    var cont_modal = 0;
+    $('html, body').animate({ scrollTop: 0 });
 
-    close_modalX.on('click', function () {
-        $(".modal-popup ").hide(500);
+    modal.on('click', function () {
+        $(this).hide(500);
+        $(this).prev().fadeIn(500);
+
+
+        if($('.modal-items').css('display') != 'none'){
+            $("thead").animate({"opacity": "1"});
+        }
+
+        if($('.modal-pdf').css('display') != 'none'){
+            $("td:nth-child(5)").animate({"opacity": "1"});
+        }
+
+        if($('.modal-relevancia').css('display') != 'none'){
+            $("td:nth-child(4)").animate({"opacity": "1"});
+        }
+
+        if($('.modal-button').css('display') != 'none'){
+            $('html, body').animate({ scrollTop: 2000 }, 1500);
+            $("#form-button").animate({"opacity": "1"});
+        }
+        
+        cont_modal++;
+        if (modal.length == cont_modal) { 
+            $('html, body').animate({ scrollTop: 0 }, 1000);
+
+            $("td").animate({"opacity": "1"});
+            $("html").sleep(2000).css({"overflow": "scroll"});
+        }
+        
     })
-    close_modalBtn.on('click', function () {
-        $(".modal-popup ").hide(500);
-    })
+
+
 
 
 
@@ -39,9 +66,16 @@ $(document).ready(function () {
     var tabela = "";
     var urlDoc = 'Tabela_Principal/Update_Tabel.php';
     tabela = $("#example").DataTable({
-        "lengthMenu": [[25, 50, 100], [25, 50, 100]],
+        "dom": 'Pfrtip',
+        "searchPanes": {
+            "controls": false
+        },
+        "lengthMenu": [[10], [10]],
         "processing": true,
         "ajax": urlDoc,
+        "paging":   false,
+        "info":     false,
+        
         "language": {
             "emptyTable": "Sem Consulta "
         },
@@ -76,7 +110,7 @@ $(document).ready(function () {
                 window.location.hash = hash;
                 $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
                     // alert(result)
-                    window.location.href = "http://localhost/site/";
+                    window.location.href = "http://localhost/site/portarias";
                     if (result == "true") {
                         tabela.ajax.url(urlDoc).load();
                     }

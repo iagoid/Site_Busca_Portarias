@@ -11,12 +11,8 @@
 }
 
 #form-button {
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  padding: 20px;
+  margin: 20px 0;
   border: black 2px solid;
-  display: none;
   font-size: 30px;
   font-weight: 700;
 }
@@ -141,18 +137,30 @@
 
 .modal-popup {
   /* display: none; */
-  position: absolute;
+  cursor: pointer;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .modal-top {
-  top: 30%;
+  top: 20%;
 }
 
 .modal-bottom {
   top: 70%;
+}
+
+.modal-right {
+  left: 68%;
+}
+.modal-right-full {
+  left: 78%;
+}
+
+.modal-left {
+  left: 20%;
 }
 
 .modal-popup {
@@ -202,6 +210,12 @@
   background-color: silver;
 }
 
+.touch-next {
+  color: #27ae60;
+  text-align: center;
+  font-style: oblique;
+}
+
 .modal-popup .close-btn {
   position: absolute;
   bottom: 5px;
@@ -211,7 +225,6 @@
   color: green;
   padding: 8px 10px;
   font-size: 18px;
-  cursor: pointer;
 }
 
 .modal-popup .close-btn:hover {
@@ -231,4 +244,15 @@
   .line {
     height: 0;
   }
+}
+
+
+/* Ocultar conteudo  */
+td, #form-button {
+  opacity: 0.2;
+}
+
+
+.modal-button {
+  bottom: 20%;
 }
