@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
     })
 
-    
+
 
     // Close Modal
     var modal = $(".my-modal")
@@ -28,31 +28,31 @@ $(document).ready(function () {
         $(this).prev().fadeIn(500);
 
 
-        if($('.modal-items').css('display') != 'none'){
-            $("thead").animate({"opacity": "1"});
+        if ($('.modal-items').css('display') != 'none') {
+            $("thead").animate({ "opacity": "1" });
         }
 
-        if($('.modal-pdf').css('display') != 'none'){
-            $("td:nth-child(5)").animate({"opacity": "1"});
+        if ($('.modal-pdf').css('display') != 'none') {
+            $("td:nth-child(5)").animate({ "opacity": "1" });
         }
 
-        if($('.modal-relevancia').css('display') != 'none'){
-            $("td:nth-child(4)").animate({"opacity": "1"});
+        if ($('.modal-relevancia').css('display') != 'none') {
+            $("td:nth-child(4)").animate({ "opacity": "1" });
         }
 
-        if($('.modal-button').css('display') != 'none'){
+        if ($('.modal-button').css('display') != 'none') {
             $('html, body').animate({ scrollTop: 2000 }, 1500);
-            $("#form-button").animate({"opacity": "1"});
+            $("#form-button").animate({ "opacity": "1" });
         }
-        
+
         cont_modal++;
-        if (modal.length == cont_modal) { 
+        if (modal.length == cont_modal) {
             $('html, body').animate({ scrollTop: 0 }, 1000);
 
-            $("td").animate({"opacity": "1"});
-            $("html").sleep(2000).css({"overflow": "scroll"});
+            $("td").animate({ "opacity": "1" });
+            $("html").sleep(2000).css({ "overflow": "scroll" });
         }
-        
+
     })
 
 
@@ -71,9 +71,9 @@ $(document).ready(function () {
         "lengthMenu": [[10], [10]],
         "processing": true,
         "ajax": urlDoc,
-        "paging":   false,
-        "info":     false,
-        
+        "paging": false,
+        "info": false,
+
         "language": {
             "emptyTable": "Sem Consulta "
         },
@@ -97,49 +97,26 @@ $(document).ready(function () {
         $(".modal-popup ").hide(500);
         $(".loader").fadeIn(500);
 
-        // var pesquisa = JSON.stringify($('#pesquisa').val());
-        // sessionStorage.setItem('value_pesquisa', pesquisa );
-
-        //... depois ...
-        // var dadosArquivados = JSON.parse(sessionStorage.getItem('value_pesquisa'));
-
         if (this.hash !== "") {
             event.preventDefault();
             // Store hash
             var hash = this.hash;
-            
+
             $('html, body').animate({
                 // scrollTop: $(hash).offset().top
             }, 1000, function () {
                 window.location.hash = hash;
+
                 $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
                     // alert(result)
-                    
                     $("form#formulario-busca").submit();
                 })
             });
         }
     })
 
-    // var input = document.getElementById("textpesquisado");
-    // input.addEventListener("keyup", function (event) {
-    //     if (event.keyCode === 13) {
-    //         event.preventDefault();
-    //         var hash = "abresult";
-    //         if (hash !== "") {
-    //             event.preventDefault();
-    //             window.location.hash = "abresult";
-    //             // alert(textpesq.val())
-    //             $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
-    //                 if (result == "true") {
-    //                     tabela.ajax.url(urlDoc).load();
-    //                 }
-    //             })
-    //         }
-    //     }
-        
-    // });
 
+    // Pegar links da tabela
     $('#example tbody').on('click', 'tr button', function () {
         var element = $(this).parent().prev()
         var data = tabela.row(element).data();
@@ -147,14 +124,8 @@ $(document).ready(function () {
         // alert( 'You clicked on '+data[0]+'\'s row' );
     });
 
-    // $( ".relevancia" ).on('change', function() {
-    //     alert("aaaaaaaaaaaaaaaaaaa");
-    //     $('#form-button').fadeIn(3000);
-    // })
 
-
-
-
+    // Enviar formulário das portarias
     $("#formulario").submit(function (e) {
         var score = []
         var urls = []
@@ -173,13 +144,13 @@ $(document).ready(function () {
             score.push(data[0])
         }
 
-        var pesquisa = $("#textpesquisado").val()
-        var objetivo = $("#objetivo").val()
+        console.log(score, urls, relevantes)
+        console.log()
 
         $.ajax({
-            url: "php/forms.php",
+            url: "php/forms2.php",
             type: "POST",
-            data: { score: score, urls: urls, relevantes: relevantes, pesquisa: pesquisa, objetivo: objetivo },
+            data: { score: score, urls: urls, relevantes: relevantes },
             dataType: "html"
 
         }).done(function (resposta) {
@@ -190,12 +161,9 @@ $(document).ready(function () {
 
         }).always(function () {
             console.log("completou");
+            window.location.replace("http://localhost/site/explicacao");
+
         });
-        // $('#form-button').hide(500);
-        // $('#objetivo').hide(500);
-        // $('html, body').animate({ scrollTop: 0 }, 'slow');
-        // $('#success-submit').fadeIn(2000);
-        // window.setTimeout('location.reload()', 5000)
     })
 
 })

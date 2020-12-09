@@ -45,7 +45,7 @@
 
 <body>
 
-  <form enctype="multipart/form-data" action="php/forms.php" method="post" id="formulario">
+  <form enctype="multipart/form-data" action="php/forms2.php" method="post" id="formulario">
     <section class="container-fluid abresult" id="abresult"
       style="width: -device-width;max-height: 63vh;margin-top: 80px">
         <h3 id="results-search"> Resultados para: 
@@ -79,7 +79,7 @@
         <h2>Fim das avaliações</h2>
         <label for="click" class="fas fa-times"></label>
       </div>
-      <p>Após avaliar <b>todas</b> as 10 portarias você deve clicar no botão concluir.</p>
+      <p>Após avaliar <b>todas</b> as portarias você deve clicar no botão concluir.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para fechar</p>
     </div>
