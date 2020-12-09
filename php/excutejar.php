@@ -33,8 +33,8 @@ if ($palavra != null) {
 				$arrayDados[$key]['nameDoc'] = $url;
 
 				$arrayDados[$key]['DocRelevante'] = 
-					"<select class='relevancia' name='relevancia-$classificacao' id='relevancia-$classificacao' onChange=seeButton()>
-							<option value='nao_avaliado'></option>
+					"<select class='relevancia' name='relevancia-$classificacao' id='relevancia-$classificacao' required>
+							<option></option>
 							<option value='sim'>Sim</option>
 							<option value='nao'>Não</option>
 					</select>";

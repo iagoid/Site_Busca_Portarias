@@ -57,8 +57,6 @@ $(document).ready(function () {
 
 
 
-
-
     // Search
     var btnPesq = $("#pesquisar");
     var textpesq = $("#textpesquisado");
@@ -99,6 +97,12 @@ $(document).ready(function () {
         $(".modal-popup ").hide(500);
         $(".loader").fadeIn(500);
 
+        // var pesquisa = JSON.stringify($('#pesquisa').val());
+        // sessionStorage.setItem('value_pesquisa', pesquisa );
+
+        //... depois ...
+        // var dadosArquivados = JSON.parse(sessionStorage.getItem('value_pesquisa'));
+
         if (this.hash !== "") {
             event.preventDefault();
             // Store hash
@@ -110,33 +114,31 @@ $(document).ready(function () {
                 window.location.hash = hash;
                 $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
                     // alert(result)
-                    window.location.href = "http://localhost/site/portarias";
-                    if (result == "true") {
-                        tabela.ajax.url(urlDoc).load();
-                    }
+                    
+                    $("form#formulario-busca").submit();
                 })
             });
         }
     })
 
-    var input = document.getElementById("textpesquisado");
-    input.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            var hash = "abresult";
-            if (hash !== "") {
-                event.preventDefault();
-                window.location.hash = "abresult";
-                // alert(textpesq.val())
-                $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
-                    if (result == "true") {
-                        tabela.ajax.url(urlDoc).load();
-                    }
-                })
-            }
-        }
+    // var input = document.getElementById("textpesquisado");
+    // input.addEventListener("keyup", function (event) {
+    //     if (event.keyCode === 13) {
+    //         event.preventDefault();
+    //         var hash = "abresult";
+    //         if (hash !== "") {
+    //             event.preventDefault();
+    //             window.location.hash = "abresult";
+    //             // alert(textpesq.val())
+    //             $.post(urlDocRequest, { wrdConsult: textpesq.val().trim() }, function (result) {
+    //                 if (result == "true") {
+    //                     tabela.ajax.url(urlDoc).load();
+    //                 }
+    //             })
+    //         }
+    //     }
         
-    });
+    // });
 
     $('#example tbody').on('click', 'tr button', function () {
         var element = $(this).parent().prev()

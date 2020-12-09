@@ -48,6 +48,12 @@
   <form enctype="multipart/form-data" action="php/forms.php" method="post" id="formulario">
     <section class="container-fluid abresult" id="abresult"
       style="width: -device-width;max-height: 63vh;margin-top: 80px">
+        <h3 id="results-search"> Resultados para: 
+          <?php
+            session_start(); # Deve ser a primeira linha do arquivo
+            echo $_SESSION['pesquisa'];
+          ?>
+        </h3>
       <table id="example" class="display" style="width:100%" data-page-length="25">
         <thead style="background-color: green;color: white; opacity: 0.2;">
 
@@ -64,8 +70,6 @@
 
       <button type="submit" class="btn btn-lg btn-block btn-green" id="form-button" name="btn-cadastrar">Concluir</button>
     </section>
-
-
   </form>
 
 
