@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 02-Nov-2020 às 23:01
--- Versão do servidor: 8.0.18
--- versão do PHP: 7.4.0
+-- Tempo de geração: 11-Dez-2020 às 17:38
+-- Versão do servidor: 5.7.31
+-- versão do PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,12 +31,25 @@ DROP TABLE IF EXISTS `portarias`;
 CREATE TABLE IF NOT EXISTS `portarias` (
   `pesquisa` text COLLATE utf8_unicode_ci NOT NULL,
   `score` text COLLATE utf8_unicode_ci NOT NULL,
-  `urls` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `relevante` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `urls` text COLLATE utf8_unicode_ci NOT NULL,
+  `relevante` text COLLATE utf8_unicode_ci NOT NULL,
   `ip` text COLLATE utf8_unicode_ci NOT NULL,
   `horario` text COLLATE utf8_unicode_ci NOT NULL,
   `objetivo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sujestoes`
+--
+
+DROP TABLE IF EXISTS `sujestoes`;
+CREATE TABLE IF NOT EXISTS `sujestoes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sujestao` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

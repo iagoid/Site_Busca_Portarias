@@ -5,7 +5,7 @@ session_start();
 
 date_default_timezone_set('America/Sao_Paulo');
 
-
+// Salvar avaliações das portarias
 if(isset($_POST['btn-salvar'])){
     $pesquisa = $_SESSION['pesquisa'];
     $objetivo = $_POST['objetivo'];
@@ -31,6 +31,26 @@ if(isset($_POST['btn-salvar'])){
 
         }
     }
-    header('Location: http://localhost/site/obrigado_por_participar');
+    header('Location: http://localhost/site/finalizacao');
+}
+
+
+
+// Salvar sujestão
+if(isset($_POST['btn-sujestao'])){
+    $sujestao = $_POST['sujestao'];
+
+    $sql = "INSERT INTO sujestoes (sujestao) VALUES 
+        ('$sujestao')";
+
+    if(mysqli_query($connect, $sql)){
+        $_SESSION['mensagem'] = "Cadastrado com sucesso";
+        header('Location: http://localhost/site/agradecimento');
+    }
+    else{
+        header('Location: http://localhost/site/agradecimento');
+        $_SESSION['mensagem'] = "Erro ao cadastrar";
+
+    }
 }
 ?>

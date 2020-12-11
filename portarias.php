@@ -7,11 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/sitStyle.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Buscador - Portarias</title>
@@ -23,8 +21,7 @@
 
   </style>
 </head>
-<header
-  style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
+<header style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
   <img class="logoIfrs" src="img/header-default.png" style=" margin-left: 5vw;margin-top: 2.5vh">
   <div style="width:-device-width;min-height: 4vh;background-color: green ; margin-top: 1.5vh">
     <nav style="float: right; margin-top: 0.6vh">
@@ -46,14 +43,13 @@
 <body>
 
   <form enctype="multipart/form-data" action="php/forms2.php" method="post" id="formulario">
-    <section class="container-fluid abresult" id="abresult"
-      style="width: -device-width;max-height: 63vh;margin-top: 80px">
-        <h3 id="results-search"> Resultados para: 
-          <?php
-            session_start(); # Deve ser a primeira linha do arquivo
-            echo $_SESSION['pesquisa'];
-          ?>
-        </h3>
+    <section class="container-fluid abresult" id="abresult" style="width: -device-width;max-height: 63vh;margin-top: 80px">
+      <h3 id="results-search"> Resultados para:
+        <?php
+        session_start(); # Deve ser a primeira linha do arquivo
+        echo $_SESSION['pesquisa'];
+        ?>
+      </h3>
       <table id="example" class="display" style="width:100%" data-page-length="25">
         <thead style="background-color: green;color: white; opacity: 0.2;">
 
@@ -143,7 +139,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-   <script type="text/javascript" src="https://cdn.xml4jquery.com/ajax/libs/xml4jquery/1.1.2/xml4jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.xml4jquery.com/ajax/libs/xml4jquery/1.1.2/xml4jquery.js"></script>
   <script type="text/javascript" src="js/development_scripts.js"></script>
 </body>
 

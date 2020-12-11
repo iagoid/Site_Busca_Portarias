@@ -262,3 +262,11 @@ td, #form-button {
 .modal-button {
   bottom: 20%;
 }
+
+
+/* Buttons Finalizar */
+.btn-final {
+  margin-top: 50px;
+  width: 45vw;
+  height: 100px;
+}
