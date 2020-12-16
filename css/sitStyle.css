@@ -1,22 +1,25 @@
-.menuTop{
-	font-size: .75rem;
+.menuTop {
+    font-size: .75rem;
     list-style: none;
     margin-bottom: 0;
     padding-left: 0;
 }
-.menuTop li{
-	    border-right: 1px solid #ccc;
+
+.menuTop li {
+    border-right: 1px solid #ccc;
     display: inline-block;
     margin-right: 10px;
     padding-right: 10px;
 }
-.menuTop li a{
-	    color: #fff;
+
+.menuTop li a {
+    color: #fff;
 }
-.ababusca{
-	background-image: url("../img/section_bg_04.png");
-	background-repeat: no-repeat;
-	z-index: -1;
+
+.ababusca {
+    background-image: url("../img/section_bg_04.png");
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 /* 
@@ -63,3 +66,9 @@
     color:white;
     text-decoration:none;
     } */
+
+@media screen and (max-width: 400px) {
+    .menuTop {
+        font-size: 10px;
+    }
+}

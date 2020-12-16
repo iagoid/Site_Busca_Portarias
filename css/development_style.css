@@ -241,18 +241,6 @@
   transition: 0.5s;
 }
 
-@media screen and (max-width: 768px) {
-  .logoIfrs {
-    width: 80vw;
-  }
-  .modal-popup {
-    width: 100vw;
-  }
-  .line {
-    height: 0;
-  }
-}
-
 /* Ocultar conteudo  */
 
 td, #form-button {
@@ -267,6 +255,26 @@ td, #form-button {
 /* Buttons Finalizar */
 .btn-final {
   margin-top: 50px;
-  width: 45vw;
+  margin-left: 5px;
+  width: 49%;
   height: 100px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .logoIfrs {
+    width: 80vw;
+  }
+  .modal-popup {
+    width: 100vw;
+  }
+  .line {
+    height: 0;
+  }
+  .btn-final{
+    width: 93vw;
+    margin-top: 30px;
+    margin-left: 0;
+  }
 }

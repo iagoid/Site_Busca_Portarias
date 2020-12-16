@@ -23,15 +23,15 @@ if(isset($_POST['btn-salvar'])){
 
         if(mysqli_query($connect, $sql)){
             $_SESSION['mensagem'] = "Cadastrado com sucesso";
-            header('Location: ../index.html');
         }
-        else{
-            header('Location: ../index.php');
-            $_SESSION['mensagem'] = "Erro ao cadastrar";
 
+        else{
+            header('Location: http://localhost/site/search');
+            $_SESSION['mensagem'] = "Erro ao cadastrar";
         }
     }
     header('Location: http://localhost/site/finalizacao');
+    session_destroy();
 }
 
 

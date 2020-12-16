@@ -22,7 +22,7 @@
   </style>
 </head>
 <header style="width: device-width ; max-height: 20vh;background-image: -webkit-gradient(linear,left top,right top,from(#fff),to(#ecedf1))">
-  <img class="logoIfrs" src="img/header-default.png" style=" margin-left: 5vw;margin-top: 2.5vh">
+  <img src="img/header-default.png" style=" margin-left: 5vw;margin-top: 2.5vh">
   <div style="width:-device-width;min-height: 4vh;background-color: green ; margin-top: 1.5vh">
     <nav style="float: right; margin-top: 0.6vh">
       <ul class="menuTop">
@@ -30,10 +30,10 @@
           <a href="https://ifrs.edu.br/">IFRS - Oficial</a>
         </li>
         <li>
-          <a href="https://ifrs.edu.br/ibiruba/">IFRS - Campus Ibiruba</a>
+          <a href="https://ifrs.edu.br/ibiruba/">IFRS - Campus Ibirubá</a>
         </li>
         <li>
-          <a href="https://ibiruba.ifrs.edu.br/site/">Ibiruba - Site Antigo</a>
+          <a href="https://ibiruba.ifrs.edu.br/site/">Ibirubá - Site Antigo</a>
         </li>
       </ul>
     </nav>
@@ -54,7 +54,7 @@
         <thead style="background-color: green;color: white; opacity: 0.2;">
 
           <tr style="text-align: center;">
-            <th>Posicao</th>
+            <th>Posição</th>
             <th>Nº Portaria</th>
             <th>Resumo da Portaria</th>
             <th>Data</th>
@@ -88,7 +88,7 @@
         <h2>Avaliações</h2>
         <label for="click" class="fas fa-times"></label>
       </div>
-      <p>Após ler a portaria, avalie-a dizendo se o <b>documento é relevante</b> </p>
+      <p>Após ler a portaria, avalie-a dizendo se o <b>documento é relevante.</b> </p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>
@@ -100,7 +100,7 @@
         <h2>PDF</h2>
         <label for="click" class="fas fa-times"></label>
       </div>
-      <p>Para ver a portaria clique no icone do <b>PDF</b>, ele irá abrir a portaria em uma nova guia.</p>
+      <p>Para ver a portaria clique no ícone do <b>PDF</b>, ele irá abrir a portaria em uma nova guia.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>
@@ -113,7 +113,7 @@
         <label for="click" class="fas fa-times"></label>
       </div>
       <p>Elas possuem 5 itens: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b>, <b>Documento Relevante?</b> e o
-        <b>PDF</b> </p>
+        <b>PDF</b>.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>
