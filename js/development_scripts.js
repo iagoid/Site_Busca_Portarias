@@ -19,10 +19,23 @@ $(document).ready(function () {
 
 
     // Close Modal
-    var modal = $(".my-modal")
+    var modal = $(".my-modal");
     var cont_modal = 0;
+
     $('html, body').animate({ scrollTop: 0 });
 
+    // Fecha tudo
+    $(".fa-times").on('click', function () {
+        $("thead").animate({ "opacity": "1" });
+        $("td:nth-child(5)").animate({ "opacity": "1" });
+        $("td:nth-child(4)").animate({ "opacity": "1" });
+        $("#form-button").animate({ "opacity": "1" });
+        $("td").animate({ "opacity": "1" });
+        $("html").sleep(1000).css({ "overflow": "scroll" });
+        $(".modal-popup ").hide(500);
+    });
+
+    // Fechar um por vez
     modal.on('click', function () {
         $(this).hide(500);
         $(this).prev().fadeIn(500);
