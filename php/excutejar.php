@@ -6,14 +6,17 @@ if ($palavra != null) {
 	unset($arrayDados);
 	$classificacao = 1;
 	$arrayDados = array();
+	putenv('LANG=en_US.UTF-8');
 	$shell = exec('java -jar "C://Users//Igor//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
+	// $shell = exec('java -jar "/var/www/Buscador_Portarias/dist/Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
 	// var_dump($saida);
 	
 	for ($i=0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
 		
-		$json = json_decode(utf8_encode($saida[$i]));
+		$json = json_decode(utf8_encode($saida[$i])); // Usar esse no localhost
+		//$json = json_decode($saida[$i]); // Usar esse na AWS
 		// var_dump($json);
 		// var_dump(utf8_encode($saida[1]));
 		// echo"<br><br>";
