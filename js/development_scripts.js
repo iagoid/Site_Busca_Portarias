@@ -104,6 +104,11 @@ $(document).ready(function () {
 
 
     // Buscas
+     $(document).keypress(function(e) {
+        if(e.which == 13) btnPesq.click();
+    });
+     
+
     btnPesq.on('click', function () {
         $(".ababusca").css("opacity", "0.2");
         $("header").css("opacity", "0.2");

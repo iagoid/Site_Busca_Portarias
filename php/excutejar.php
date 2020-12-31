@@ -45,16 +45,19 @@ if ($palavra != null) {
 
 
 				$conteudo = $value->conteudo;
-				// $conteudo = str_replace(",  ,", "", $conteudo);
-				// $conteudo = str_replace(",   ,", "", $conteudo);
-				// $conteudo = str_replace(",    ,", "", $conteudo);
+				$conteudo = str_replace(",,", " ", $conteudo);
+				$conteudo = str_replace(", ,", " ", $conteudo);
+				$conteudo = str_replace(",  ,", " ", $conteudo);
+				$conteudo = str_replace(",   ,", " ", $conteudo);
+				$conteudo = str_replace(",    ,", " ", $conteudo);
 				// $posicao = strripos($conteudo, $palavra);
 				// $conteudoSeparado =  substr($conteudo, $posicao, 500);
 				$tamanho = strlen($conteudo);
 				if ($tamanho > 500){
 					$tamanho = 500;
 				} 
-				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1);
+				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1).trim("...");
+				$conteudoSeparado = mb_convert_encoding($conteudoSeparado, "UTF-8", "auto");
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
 			}
 		}
