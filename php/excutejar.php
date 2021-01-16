@@ -58,6 +58,21 @@ if ($palavra != null) {
 				} 
 				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1).trim("...");
 				$conteudoSeparado = mb_convert_encoding($conteudoSeparado, "UTF-8", "auto");
+
+
+				// Destacar termos pesquisados
+				$busca_separada = explode(' ', $palavra);
+				foreach($busca_separada as $busca){
+					if (stripos($conteudoSeparado, $busca)) {
+						$posicao = strripos($conteudoSeparado, $busca);
+						// var_dump($conteudoSeparado);
+						// var_dump($posicao);
+						$conteudoSeparado = substr_replace($conteudoSeparado, '</strong>', $posicao + strlen($busca), 0);
+						$conteudoSeparado = substr_replace($conteudoSeparado, '<strong>', $posicao, 0);
+					}
+				}
+				
+				
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
 			}
 		}

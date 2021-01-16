@@ -70,13 +70,27 @@
   </form>
 
 
+
+  <div class="my-modal modal-avaliar" style="display: none;">
+    <div class="modal-popup small-modal modal-bottom">
+      <div class="modal-title">
+        <h2>Hora de avaliações</h2>
+        <label for="click" class="fas fa-times close_portarias"></label>
+      </div>
+      <p>Chegou a sua hora de avaliar os resultados. Vamos lá...</p>
+      <div class="line"></div>
+      <p class="touch-next">Clique aqui para fechar</p>
+    </div>
+  </div>
+
+
   <div class="my-modal modal-button" style="display: none;">
     <div class="modal-popup small-modal modal-bottom">
       <div class="modal-title">
         <h2>Fim das avaliações</h2>
-        <label for="click" class="fas fa-times"></label>
+        <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Após avaliar <b>todas</b> as portarias você deve clicar no botão concluir.</p>
+      <p>Após avaliar todas as portarias listadas, você deve clicar no botão concluir.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para fechar</p>
     </div>
@@ -84,12 +98,12 @@
 
 
   <div class="my-modal modal-relevancia" style="display: none;">
-    <div class="modal-popup small-modal modal-bottom modal-right">
+    <div class="modal-popup mid-modal modal-bottom modal-right">
       <div class="modal-title">
         <h2>Avaliações</h2>
-        <label for="click" class="fas fa-times"></label>
+        <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Após ler a portaria, avalie-a dizendo se o <b>documento é relevante.</b> </p>
+      <p>Após ler a portaria, avalie se ela corresponde a um documento relevante, ou seja, marque na caixa de seleção o valor Sim se o documento contém a portaria que você estava procurando ou Não se o documento não contém o que você estava procurando. Faça isso, para as dez portarias listadas nos resultados.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>
@@ -99,9 +113,9 @@
     <div class="modal-popup small-modal modal-bottom modal-right-full">
       <div class="modal-title">
         <h2>PDF</h2>
-        <label for="click" class="fas fa-times"></label>
+        <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Para ver a portaria clique no ícone do <b>PDF</b>, ele irá abrir a portaria em uma nova guia.</p>
+      <p>Para visualizar a portaria, clique no ícone de <b>PDF</b> (última coluna), que o documento original com a portaria será aberto em uma nova guia.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>
@@ -111,9 +125,9 @@
     <div class="modal-popup small-modal modal-top">
       <div class="modal-title">
         <h2>Itens</h2>
-        <label for="click" class="fas fa-times"></label>
+        <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Elas possuem 5 itens: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b>, <b>Documento Relevante?</b> e o
+      <p>Os resultados estão apresentados em uma tabela com 5 colunas: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b>, <b>Documento Relevante?</b> e o
         <b>PDF</b>.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
@@ -124,9 +138,9 @@
     <div class="modal-popup small-modal modal-bottom">
       <div class="modal-title">
         <h2>Busca Completa</h2>
-        <label for="click" class="fas fa-times"></label>
+        <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Aqui estão as portarias que você pesquisou!</p>
+      <p>Aqui estão as portarias encontradas a partir da sua busca.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para continuar</p>
     </div>

@@ -182,6 +182,10 @@
   height: 200px;
 }
 
+.mid-modal {
+  height: 300px;
+}
+
 .modal-title {
   height: 45px;
   background-color: green;
