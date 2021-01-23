@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Edimar';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Edimar manica 2020';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -50,18 +50,23 @@ if ($palavra != null) {
 				$conteudo = str_replace(",  ,", " ", $conteudo);
 				$conteudo = str_replace(",   ,", " ", $conteudo);
 				$conteudo = str_replace(",    ,", " ", $conteudo);
-				// $posicao = strripos($conteudo, $palavra);
+				
+				$busca_separada = explode(' ', $palavra);
+
+				$posicao = strripos($conteudo, $busca_separada[0]);
+				$posicao = $posicao > 0 ? $posicao : 1;
+				var_dump($posicao);
+
 				// $conteudoSeparado =  substr($conteudo, $posicao, 500);
 				$tamanho = strlen($conteudo);
 				if ($tamanho > 500){
 					$tamanho = 500;
 				} 
-				$conteudoSeparado =  substr($conteudo, 0, $tamanho-1).trim("...");
+				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho).trim("...");
 				$conteudoSeparado = mb_convert_encoding($conteudoSeparado, "UTF-8", "auto");
 
 
 				// Destacar termos pesquisados
-				$busca_separada = explode(' ', $palavra);
 				foreach($busca_separada as $busca){
 					if (stripos($conteudoSeparado, $busca)) {
 						$posicao = strripos($conteudoSeparado, $busca);
