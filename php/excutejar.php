@@ -42,8 +42,6 @@ if ($palavra != null) {
 							<option value='nao'>Não</option>
 					</select>";
 				$classificacao++;
-
-
 				$conteudo = $value->conteudo;
 				$conteudo = str_replace(",,", " ", $conteudo);
 				$conteudo = str_replace(", ,", " ", $conteudo);
@@ -51,20 +49,27 @@ if ($palavra != null) {
 				$conteudo = str_replace(",   ,", " ", $conteudo);
 				$conteudo = str_replace(",    ,", " ", $conteudo);
 				
-				$busca_separada = explode(' ', $palavra);
 
+
+				$busca_separada = explode(' ', $palavra);
 				$posicao = strripos($conteudo, $busca_separada[0]);
 				$posicao = $posicao > 0 ? $posicao : 1;
-				var_dump($posicao);
 
 				// $conteudoSeparado =  substr($conteudo, $posicao, 500);
+				$conteudoB = " ";
 				$tamanho = strlen($conteudo);
-				if ($tamanho > 500){
+				if ($tamanho-$posicao > 500){
 					$tamanho = 500;
-				} 
-				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho).trim("...");
-				$conteudoSeparado = mb_convert_encoding($conteudoSeparado, "UTF-8", "auto");
+				}
+				else {
+					$conteudoB =  substr($conteudo, $posicao-1, $tamanho).trim("... ");
+					$tamanho = 500-strlen($conteudoB);
+					$posicao = 1;
+				}
 
+				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho).trim("...");
+				$conteudoSeparado = mb_convert_encoding($conteudoSeparado.trim($conteudoB), "UTF-8", "auto");
+				var_dump($conteudoSeparado);
 
 				// Destacar termos pesquisados
 				foreach($busca_separada as $busca){
