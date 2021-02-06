@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Edimar manica 2020';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Rodrigo Lange';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -50,35 +50,54 @@ if ($palavra != null) {
 				$conteudo = str_replace(",    ,", " ", $conteudo);
 				
 
-
+				// Separando nas possveis ocorrencias
+				$posicao = 0;
 				$busca_separada = explode(' ', $palavra);
-				$posicao = strripos($conteudo, $busca_separada[0]);
+
+				foreach($busca_separada as $palavra1){
+					foreach($busca_separada as $palavra2){
+						$posicao = strripos($conteudo, $palavra1." ".$palavra2);
+						if($posicao > 0){
+							break 2;
+						}
+					}
+				}
+
+				if($posicao <= 0){
+					foreach($busca_separada as $palavra){
+						$posicao = strripos($conteudo, $palavra);
+						if($posicao > 0){
+							break;
+						}
+					}
+				}
+
 				$posicao = $posicao > 0 ? $posicao : 1;
 
 				// $conteudoSeparado =  substr($conteudo, $posicao, 500);
+				// Dividindo o texto que irá aparecer
 				$conteudoB = " ";
 				$tamanho = strlen($conteudo);
 				if ($tamanho-$posicao > 500){
 					$tamanho = 500;
 				}
 				else {
-					$conteudoB =  substr($conteudo, $posicao-1, $tamanho).trim("... ");
+					$conteudoB =  substr($conteudo, $posicao-1, $tamanho)."...";
 					$tamanho = 500-strlen($conteudoB);
 					$posicao = 1;
 				}
 
-				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho).trim("...");
-				$conteudoSeparado = mb_convert_encoding($conteudoSeparado.trim($conteudoB), "UTF-8", "auto");
-				var_dump($conteudoSeparado);
+				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho)."...";
+				$conteudoSeparado = mb_convert_encoding($conteudoSeparado.$conteudoB, "UTF-8", "auto");
 
 				// Destacar termos pesquisados
 				foreach($busca_separada as $busca){
 					if (stripos($conteudoSeparado, $busca)) {
 						$posicao = strripos($conteudoSeparado, $busca);
-						// var_dump($conteudoSeparado);
-						// var_dump($posicao);
+						var_dump($posicao);
 						$conteudoSeparado = substr_replace($conteudoSeparado, '</strong>', $posicao + strlen($busca), 0);
 						$conteudoSeparado = substr_replace($conteudoSeparado, '<strong>', $posicao, 0);
+						var_dump($conteudoSeparado);
 					}
 				}
 				
