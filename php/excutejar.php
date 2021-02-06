@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'Rodrigo Lange';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = '2020 Rodrigo Lange';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -43,11 +43,12 @@ if ($palavra != null) {
 					</select>";
 				$classificacao++;
 				$conteudo = $value->conteudo;
-				$conteudo = str_replace(",,", " ", $conteudo);
-				$conteudo = str_replace(", ,", " ", $conteudo);
-				$conteudo = str_replace(",  ,", " ", $conteudo);
-				$conteudo = str_replace(",   ,", " ", $conteudo);
-				$conteudo = str_replace(",    ,", " ", $conteudo);
+
+				do{
+					$conteudo = str_replace("  ", " ", $conteudo);
+					$conteudo = str_replace(",,", " ", $conteudo);
+					$conteudo = str_replace(", ,", " ", $conteudo);
+				}while(strripos($conteudo, "  "));
 				
 
 				// Separando nas possveis ocorrencias
@@ -57,6 +58,8 @@ if ($palavra != null) {
 				foreach($busca_separada as $palavra1){
 					foreach($busca_separada as $palavra2){
 						$posicao = strripos($conteudo, $palavra1." ".$palavra2);
+						var_dump($palavra1." ".$palavra2);
+						var_dump($posicao);
 						if($posicao > 0){
 							break 2;
 						}
@@ -94,10 +97,10 @@ if ($palavra != null) {
 				foreach($busca_separada as $busca){
 					if (stripos($conteudoSeparado, $busca)) {
 						$posicao = strripos($conteudoSeparado, $busca);
-						var_dump($posicao);
+						// var_dump($posicao);
 						$conteudoSeparado = substr_replace($conteudoSeparado, '</strong>', $posicao + strlen($busca), 0);
 						$conteudoSeparado = substr_replace($conteudoSeparado, '<strong>', $posicao, 0);
-						var_dump($conteudoSeparado);
+						// var_dump($conteudoSeparado);
 					}
 				}
 				
