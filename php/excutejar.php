@@ -7,14 +7,14 @@ if ($palavra != null) {
 	$classificacao = 1;
 	$arrayDados = array();
 	putenv('LANG=en_US.UTF-8');
-	$shell = exec('java -jar "C://Users//Igor//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
+	$shell = exec('java -jar "C://Users//Igor//Documents//NetBeansProjects//PROJETO_BUSCADOR-PORTARIAS-//Buscador_Portarias//dist//Buscador_Portarias.jar" -query "' . trim($palavra) . '"', $saida);
 	// $shell = exec('java -jar "/var/www/Buscador_Portarias/dist/Buscador_Portarias.jar" -query "'.trim($palavra).'"' , $saida);
 	$quantidade = count($saida);
 	// var_dump($saida);
-	
-	for ($i=0; $i < $quantidade; $i++) {
+
+	for ($i = 0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
-		
+
 		$json = json_decode(utf8_encode($saida[$i])); // Usar esse no localhost
 		//$json = json_decode($saida[$i]); // Usar esse na AWS
 		// var_dump($json);
@@ -24,18 +24,18 @@ if ($palavra != null) {
 		// die();
 		$jsonCount = (is_array($json) ? count($json) : 0);
 		if ($jsonCount > 0) {
-			foreach ($json as $key => $value) {	
+			foreach ($json as $key => $value) {
 				$arrayDados[$key]['posicao'] = $classificacao;
-				$arrayDados[$key]['datePort'] = str_replace("\/", "-", $value->datePort) ;
+				$arrayDados[$key]['datePort'] = str_replace("\/", "-", $value->datePort);
 				if ($value->numPort > 0) {
 					$arrayDados[$key]['numPort'] = $value->numPort;
-				}else{
+				} else {
 					$arrayDados[$key]['numPort'] = 00000;
 				}
 				$url = $value->nameDoc;
 				$arrayDados[$key]['nameDoc'] = $url;
 
-				$arrayDados[$key]['DocRelevante'] = 
+				$arrayDados[$key]['DocRelevante'] =
 					"<select class='relevancia' name='relevancia-$classificacao' id='relevancia-$classificacao' required>
 							<option></option>
 							<option value='sim'>Sim</option>
@@ -44,32 +44,30 @@ if ($palavra != null) {
 				$classificacao++;
 				$conteudo = $value->conteudo;
 
-				do{
+				do {
 					$conteudo = str_replace("  ", " ", $conteudo);
 					$conteudo = str_replace(",,", " ", $conteudo);
 					$conteudo = str_replace(", ,", " ", $conteudo);
-				}while(strripos($conteudo, "  "));
-				
+				} while (strripos($conteudo, "  "));
+
 
 				// Separando nas possveis ocorrencias
 				$posicao = 0;
 				$busca_separada = explode(' ', $palavra);
 
-				foreach($busca_separada as $palavra1){
-					foreach($busca_separada as $palavra2){
-						$posicao = strripos($conteudo, $palavra1." ".$palavra2);
-						var_dump($palavra1." ".$palavra2);
-						var_dump($posicao);
-						if($posicao > 0){
+				foreach ($busca_separada as $palavra1) {
+					foreach ($busca_separada as $palavra2) {
+						$posicao = strripos($conteudo, $palavra1 . " " . $palavra2);
+						if ($posicao > 0) {
 							break 2;
 						}
 					}
 				}
 
-				if($posicao <= 0){
-					foreach($busca_separada as $palavra){
+				if ($posicao <= 0) {
+					foreach ($busca_separada as $palavra) {
 						$posicao = strripos($conteudo, $palavra);
-						if($posicao > 0){
+						if ($posicao > 0) {
 							break;
 						}
 					}
@@ -77,34 +75,29 @@ if ($palavra != null) {
 
 				$posicao = $posicao > 0 ? $posicao : 1;
 
-				// $conteudoSeparado =  substr($conteudo, $posicao, 500);
 				// Dividindo o texto que irá aparecer
 				$conteudoB = " ";
 				$tamanho = strlen($conteudo);
-				if ($tamanho-$posicao > 500){
+				if ($tamanho - $posicao > 500) {
 					$tamanho = 500;
-				}
-				else {
-					$conteudoB =  substr($conteudo, $posicao-1, $tamanho)."...";
-					$tamanho = 500-strlen($conteudoB);
+				} else {
+					$conteudoB =  substr($conteudo, $posicao - 1, $tamanho) . "...";
+					$tamanho = 500 - strlen($conteudoB);
 					$posicao = 1;
 				}
 
-				$conteudoSeparado =  substr($conteudo, $posicao-1, $tamanho)."...";
-				$conteudoSeparado = mb_convert_encoding($conteudoSeparado.$conteudoB, "UTF-8", "auto");
+				$conteudoSeparado =  substr($conteudo, $posicao - 1, $tamanho) . "...";
+				$conteudoSeparado = mb_convert_encoding($conteudoSeparado . $conteudoB, "UTF-8", "auto");
 
 				// Destacar termos pesquisados
-				foreach($busca_separada as $busca){
-					if (stripos($conteudoSeparado, $busca)) {
-						$posicao = strripos($conteudoSeparado, $busca);
-						// var_dump($posicao);
-						$conteudoSeparado = substr_replace($conteudoSeparado, '</strong>', $posicao + strlen($busca), 0);
-						$conteudoSeparado = substr_replace($conteudoSeparado, '<strong>', $posicao, 0);
-						// var_dump($conteudoSeparado);
-					}
+				$busca_strong = [];
+
+				foreach ($busca_separada as $busca) {
+					$busca_strong[] = "<strong> " . strtoupper($busca) . " </strong>";
 				}
-				
-				
+
+				$conteudoSeparado = str_ireplace($busca_separada, $busca_strong, $conteudoSeparado);
+
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
 			}
 		}
@@ -114,11 +107,10 @@ if ($palavra != null) {
 
 	$stringarray = json_encode($arrayDados);
 	// var_dump($stringarray);
-	unlink("".__DIR__."/archives/arquivo.txt");
-	$arquivo = fopen("".__DIR__."/archives/arquivo.txt", "w+");
+	unlink("" . __DIR__ . "/archives/arquivo.txt");
+	$arquivo = fopen("" . __DIR__ . "/archives/arquivo.txt", "w+");
 	fwrite($arquivo, $stringarray);
 	fclose($arquivo);
 
 	echo "true";
-
 }

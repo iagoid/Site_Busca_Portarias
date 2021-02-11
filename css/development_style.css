@@ -200,13 +200,13 @@
 
 .fa-times {
   position: absolute;
-  right: 20px;
-  top: 14px;
+  right: 0px;
+  top: 0px;
   color: white;
   font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
   z-index: 1;
+  padding: 14px;
 }
 
 .modal-popup p {
@@ -236,6 +236,7 @@
   color: green;
   padding: 8px 10px;
   font-size: 18px;
+  padding: 20px;
 }
 
 .modal-popup .close-btn:hover {
