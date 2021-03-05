@@ -1,6 +1,6 @@
 <?php
 
-$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = '2020 Rodrigo Lange';
+$palavra = isset($_POST['wrdConsult']) ? $palavra = $_POST['wrdConsult'] : $palavra = 'comissão de avaliação e gestão de projetos';
 
 if ($palavra != null) {
 	unset($arrayDados);
@@ -12,16 +12,22 @@ if ($palavra != null) {
 	$quantidade = count($saida);
 	// var_dump($saida);
 
+
+	// Ignorando stopwords
+	$busca_separada = explode(' ', $palavra);
+		
+	$txtStopWords = file("../php/archives/stopwords.txt");
+	foreach($txtStopWords as $linha){
+		$linha = trim($linha);
+		$stopWords[] = $linha;
+	}
+	$termosDestaque = array_diff($busca_separada, $stopWords);
+
 	for ($i = 0; $i < $quantidade; $i++) {
 		// var_dump($saida[$i]);
 
 		$json = json_decode(utf8_encode($saida[$i])); // Usar esse no localhost
 		//$json = json_decode($saida[$i]); // Usar esse na AWS
-		// var_dump($json);
-		// var_dump(utf8_encode($saida[1]));
-		// echo"<br><br>";
-		// exit();
-		// die();
 		$jsonCount = (is_array($json) ? count($json) : 0);
 		if ($jsonCount > 0) {
 			foreach ($json as $key => $value) {
@@ -53,7 +59,7 @@ if ($palavra != null) {
 
 				// Separando nas possveis ocorrencias
 				$posicao = 0;
-				$busca_separada = explode(' ', $palavra);
+				
 
 				foreach ($busca_separada as $palavra1) {
 					foreach ($busca_separada as $palavra2) {
@@ -92,11 +98,12 @@ if ($palavra != null) {
 				// Destacar termos pesquisados
 				$busca_strong = [];
 
-				foreach ($busca_separada as $busca) {
-					$busca_strong[] = "<strong> " . strtoupper($busca) . " </strong>";
+				foreach ($termosDestaque as $busca) {
+					$busca_strong[] = "<strong> " . mb_strtoupper ($busca) . " </strong>";
 				}
+				var_dump($busca_strong);
 
-				$conteudoSeparado = str_ireplace($busca_separada, $busca_strong, $conteudoSeparado);
+				$conteudoSeparado = str_ireplace($termosDestaque, $busca_strong, $conteudoSeparado);
 
 				$arrayDados[$key]['conteudo'] = $conteudoSeparado;
 			}
