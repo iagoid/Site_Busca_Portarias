@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Buscador - Portarias</title>
+
+  <link rel="stylesheet" href="css/development_style.css">
+
+  <link rel="shortcut icon" href="img/logo_vertical.png" />
+
+</head>
+<header>
+  <img class="logoIfrs" src="img/header-default.png">
+  <div class="header-links">
+    <nav>
+      <ul class="menuTop">
+        <li>
+          <a href="https://ifrs.edu.br/">IFRS - Oficial</a>
+        </li>
+        <li>
+          <a href="https://ifrs.edu.br/ibiruba/">IFRS - Campus Ibirubá</a>
+        </li>
+        <li>
+          <a href="https://ibiruba.ifrs.edu.br/site/">Ibirubá - Site Antigo</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body>
+
+  <div class="my-modal">
+    <div class="modal-popup small-modal modal-bottom ">
+      <div class="modal-title">
+        <h2>Forma de Utilização</h2>
+        <label for="click" class="fas fa-times"></label>
+      </div>
+      <p>Digite no campo de busca acima o que deseja procurar nas portarias do IFRS. Utilize termos que você acredita
+        estarem nas portarias que você procura. Após, clique na lupa para ver os resultados da busca. </p>
+      <div class="line"></div>
+      <p class="touch-next">Clique aqui para continuar</p>
+    </div>
+  </div>
+
+
+  <div class="my-modal">
+    <div class="modal-popup mid-modal">
+      <div class="modal-title">
+        <h2>Desenvolvedores</h2>
+        <label for="click" class="fas fa-times"></label>
+      </div>
+      <p>Esta ferramenta está sendo desenvolvida pelos alunos do Curso de Ciência da Computação do IFRS - Campus Ibirubá
+        Serigne Khassim Mbaye e Iago Ivanir Dalmolin e faz parte do projeto de pesquisa Avaliação de Sistemas de
+        Recuperação de Informação para Busca de Portarias, orientado pelo professor Edimar Manica</p>
+      <div class="line"></div>
+      <p class="touch-next">Clique aqui para continuar</p>
+    </div>
+  </div>
+
+  <div class="my-modal modal-help">
+    <div class="modal-popup very-small-modal modal-bottom">
+      <div class="modal-title">
+        <h2>Seja bem-vindo(a)</h2>
+        <label for="click" class="fas fa-times"></label>
+      </div>
+      <p>Bem-vindo(a) a ferramenta Touba, que tem como objetivo permitir a busca em portarias do IFRS.</p>
+      <div class="line"></div>
+      <p class="touch-next">Clique aqui para continuar</p>
+    </div>
+  </div>
+
+
+
+
+  <form enctype="multipart/form-data" action="php/forms.php" method="post" id="formulario-busca">
+    <section class="container-fluid ababusca">
+      <div class="d-flex justify-content-center">
+        <div class="searchbar">
+          <input class="search_input" type="text" required id="textpesquisado" name="pesquisa"
+            placeholder="Digite palavras/termos que você acredita estar na portaria que procura" autofocus="true">
+
+          <a href="#carregando" type="submit" id="pesquisar" class="search_icon" name="btn-pesquisar"><i
+              class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </section>
+    <i class="fas fa-question-circle btn-help">
+      <span class="tooltiptext">Ajuda</span>
+    </i>
+  </form>
+
+
+
+  <div class="loader">
+    <div class="c-loader">
+    </div>
+    <h2>Carregando Portarias...</h2>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/development_scripts.js"></script>
+
+</body>
+
+</html>
