@@ -8,10 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Buscador - Portarias</title>
@@ -44,15 +42,14 @@
   <section class="container-fluid abresult">
     <div class="header-portarias">
       <div>
-        <h3 id="results-search"> Resultados para:
+        <h3 id="results-search"> Busca:
           <?php
           session_start();
-          echo $_SESSION['pesquisa'];
+          echo $_SESSION['pesquisa']
           ?>
         </h3>
       </div>
       <div>
-
         <a href="../site2/search.html" class="btn btn-green">Realizar outra pesquisa</a>
       </div>
     </div>
@@ -70,7 +67,7 @@
       </thead>
     </table>
 
-    <i class="fas fa-question-circle btn-help">
+    <i class="fas fa-question-circle btn-help fixed">
       <span class="tooltiptext">Ajuda</span>
     </i>
 
@@ -82,14 +79,12 @@
         <h2>Ajuda</h2>
         <label for="click" class="fas fa-times close_portarias"></label>
       </div>
-      <p>Aqui estão as portarias encontradas a partir da sua busca.
-
-        Os resultados estão apresentados em uma tabela com 4 colunas: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b> e o
+      <p>Aqui estão as portarias encontradas a partir da sua busca. Os resultados estão apresentados
+        em uma tabela com 4 colunas: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b> e o
         <b>PDF</b>.
       </p>
-      <p> Para visualizar a portaria, clique no ícone de <b>PDF</b> (última coluna), que o documento original com a portaria será aberto em uma nova guia.</p>
-
-      </p>
+      <p> Para visualizar a portaria, clique no ícone de <b>PDF</b> (última coluna), que o documento
+        original com a portaria será aberto em uma nova guia.</p>
       <div class="line"></div>
       <p class="touch-next">Clique aqui para fechar</p>
     </div>

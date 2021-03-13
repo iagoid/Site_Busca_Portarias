@@ -51,7 +51,7 @@
       <p>Digite no campo de busca acima o que deseja procurar nas portarias do IFRS. Utilize termos que você acredita
         estarem nas portarias que você procura. Após, clique na lupa para ver os resultados da busca. </p>
       <div class="line"></div>
-      <p class="touch-next">Clique aqui para continuar</p>
+      <p class="touch-next">Clique aqui para fechar</p>
     </div>
   </div>
 
@@ -83,24 +83,30 @@
   </div>
 
 
-
-
   <form enctype="multipart/form-data" action="php/forms.php" method="post" id="formulario-busca">
-    <section class="container-fluid ababusca">
-      <div class="d-flex justify-content-center">
-        <div class="searchbar">
-          <input class="search_input" type="text" required id="textpesquisado" name="pesquisa"
-            placeholder="Digite palavras/termos que você acredita estar na portaria que procura" autofocus="true">
+    <section class="ababusca">
 
-          <a href="#carregando" type="submit" id="pesquisar" class="search_icon" name="btn-pesquisar"><i
-              class="fas fa-search"></i></a>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="fas fa-question-circle btn-help tooltip-search">
+              <span class="tooltiptext">Ajuda</span>
+            </i>
+          </span>
+        </div>
+        <input type="text" class="form-control searchbar" id="textpesquisado" name="pesquisa"
+          placeholder="Digite palavras/termos que você acredita estar na portaria que procura"
+          aria-label="Digite palavras/termos que você acredita estar na portaria que procura"
+          aria-describedby="basic-addon2" required min=1>
+        <div class="input-group-append">
+          <button class="btn icon-search-btn" type="submit"><a href="#carregando" type="submit" id="pesquisar"
+              class="search_icon" name="btn-pesquisar">
+              <i class="fas fa-search"></i></a></button>
         </div>
       </div>
     </section>
-    <i class="fas fa-question-circle btn-help">
-      <span class="tooltiptext">Ajuda</span>
-    </i>
   </form>
+
 
 
 

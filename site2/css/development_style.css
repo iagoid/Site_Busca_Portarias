@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+/* Geral */
+
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Menu */
+
 .logoIfrs {
   margin: 20px 40px 0px 40px;
+  width: 90vw;
+  max-width: 620px;
 }
 
 .header-links {
-  min-height: 4vh;
+  min-height: 25px;
   background-color: green;
   margin-top: 1.5vh;
 }
@@ -37,20 +50,24 @@
   background-image: url("../img/section_bg_04.png");
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 67vh;
+  height: 65vh;
+}
+
+.input-group {
+  justify-content: center;
 }
 
 /* Resultados portarias */
 
 .abresult {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .header-portarias {
   display: flex;
   flex-direction: column;
   margin-bottom: 0px;
-
 }
 
 .btn-green {
@@ -70,19 +87,23 @@
 }
 
 /* Tooltip */
+
 .btn-help {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 35px;
-  background-color: white;
-  border-radius: 50%;
+  font-size: 25px;
   cursor: pointer;
+  position: relative;
+}
+
+.btn-help.fixed {
+  font-size: 35px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 .btn-help .tooltiptext {
   opacity: 0;
-  width: 120px;
+  width: 80px;
   background-color: #212529;
   color: #fff;
   text-align: center;
@@ -94,6 +115,11 @@
   font-size: 15px;
   z-index: 1;
   transition: 1s ease;
+}
+
+.btn-help.tooltip-search .tooltiptext{
+  left: 100%;
+  top: 70%;
 }
 
 .btn-help:hover .tooltiptext {
@@ -112,27 +138,44 @@
 #example_filter input {
   border-radius: 6px;
 }
+
 /* Input */
+
+.input-group-text {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: #74f074;
+  border: 2px solid green;
+  border-right: none;
+}
+
+.icon-search-btn {
+  border-radius: 0 50% 50% 0;
+  border: 2px solid green;
+  border-left: 2px solid transparent;
+  background-color: #54B054;
+  transition: 1s;
+}
+
+.icon-search-btn:hover {
+  background-color: green;
+  border: 2px solid green;
+}
 
 .searchbar {
   height: 60px;
   border: 2px solid green;
   background-color: #74f074;
-  border-radius: 30px;
-  padding: 10px;
+  max-width: 70vw;
+  border-left: none;
+  font-weight: bold;
+  color: #212529 !important;
 }
 
-.search_input {
-  border: 0;
-  outline: 0;
-  background: none;
-  width: 0;
-  line-height: 40px;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 0 10px;
-  width: 70vw;
-  max-width: 1280px;
+.searchbar:focus {
+  border: 2px solid green;
+  border-left: none;
+  background-color: #74f074;
 }
 
 .search_icon {
@@ -144,41 +187,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: white;
-  color: #e74c3c;
-  border: 2px solid #e74c3c;
+  color: green;
   background: white;
 }
 
-
 .search_icon:hover {
   text-decoration: none;
-  color: red;
-}
-
-#formulario-busca:valid .search_icon {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    border: 2px solid green;
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 128, 0, 0.7);
-    color: green;
-  }
-  70% {
-    border: 2px solid green;
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 128, 0, 0);
-    color: green;
-  }
-  100% {
-    border: 2px solid green;
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
-    color: green;
-  }
+  color: green;
 }
 
 /* Loader */
@@ -208,8 +223,11 @@
 }
 
 /* Modal Popup */
-.my-modal{
+
+.my-modal {
   display: none;
+  position: absolute;
+  z-index: 1;
 }
 
 .modal-popup {
@@ -342,7 +360,7 @@
 @media screen and (max-width: 600px) {
   .header-portarias {
     align-items: center;
-  justify-content: center;
+    justify-content: center;
   }
   .btn-green {
     margin: 0;
@@ -354,7 +372,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .logoIfrs{
+  .logoIfrs {
     width: 75vw;
   }
   .modal-popup {

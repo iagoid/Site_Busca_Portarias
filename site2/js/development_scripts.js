@@ -45,7 +45,7 @@ $(document).ready(function () {
         "info": false,
 
         "language": {
-            "emptyTable": "Sem Consulta ",
+            "emptyTable": "Nenhum Resultado se encaixa com a consulta",
             "search": "Filtrar:",
         },
         "columnDefs": [{
