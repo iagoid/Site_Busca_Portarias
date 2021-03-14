@@ -39,58 +39,59 @@
 </header>
 
 <body>
-  <section class="container-fluid abresult">
-    <div class="header-portarias">
-      <div>
-        <h3 id="results-search"> Busca:
-          <?php
-          session_start();
-          echo $_SESSION['pesquisa']
-          ?>
-        </h3>
+  <div class="container-fluid">
+    <section class="abresult">
+      <div class="header-portarias">
+        <div class="div-terms-results">
+          <h3> Busca:
+            <?php
+            session_start();
+            echo $_SESSION['pesquisa']
+            ?>
+          </h3>
+
+        </div>
+        <div class="div-new-search">
+          <i class="fas fa-question-circle btn-help">
+            <span class="tooltiptext">Ajuda</span>
+          </i>
+          <a class="btn btn-green" href="../site2/search.html" role="button">Realizar outra busca</a>
+
+        </div>
       </div>
-      <div>
-        <a href="../site2/search.html" class="btn btn-green">Realizar outra pesquisa</a>
+
+      <table id="example" class="display" style="width:100%" data-page-length="25">
+        <thead style="background-color: green;color: white;">
+
+          <tr style="text-align: center;">
+            <th>Posição</th>
+            <th>Nº Portaria</th>
+            <th>Resumo da Portaria</th>
+            <th>Data</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+
+    <div class="my-modal modal-help">
+      <div class="modal-popup big-modal">
+        <div class="modal-title">
+          <h2>Ajuda</h2>
+          <label for="click" class="fas fa-times"></label>
+        </div>
+        <p>Aqui estão as portarias encontradas a partir da sua busca. Os resultados estão apresentados
+          em uma tabela com 4 colunas: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b> e o
+          <b>PDF</b>.
+        </p>
+        <p> Para visualizar a portaria, clique no ícone de <b>PDF</b> (última coluna), que o documento
+          original com a portaria será aberto em uma nova guia.</p>
+        <div class="line"></div>
+        <p class="touch-next">Clique aqui para continuar</p>
       </div>
     </div>
 
-    <table id="example" class="display" style="width:100%" data-page-length="25">
-      <thead style="background-color: green;color: white;">
-
-        <tr style="text-align: center;">
-          <th>Posição</th>
-          <th>Nº Portaria</th>
-          <th>Resumo da Portaria</th>
-          <th>Data</th>
-          <th>PDF</th>
-        </tr>
-      </thead>
-    </table>
-
-    <i class="fas fa-question-circle btn-help fixed">
-      <span class="tooltiptext">Ajuda</span>
-    </i>
-
-  </section>
-
-  <div class="my-modal  modal-help">
-    <div class="modal-popup big-modal">
-      <div class="modal-title">
-        <h2>Ajuda</h2>
-        <label for="click" class="fas fa-times close_portarias"></label>
-      </div>
-      <p>Aqui estão as portarias encontradas a partir da sua busca. Os resultados estão apresentados
-        em uma tabela com 4 colunas: o <b>Nº Portaria</b>, <b>Resumo</b>, <b>Data</b> e o
-        <b>PDF</b>.
-      </p>
-      <p> Para visualizar a portaria, clique no ícone de <b>PDF</b> (última coluna), que o documento
-        original com a portaria será aberto em uma nova guia.</p>
-      <div class="line"></div>
-      <p class="touch-next">Clique aqui para fechar</p>
-    </div>
   </div>
-
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

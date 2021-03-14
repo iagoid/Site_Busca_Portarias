@@ -66,25 +66,30 @@
 
 .header-portarias {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 0px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.btn-green {
-  height: 55px;
-  margin-right: 15px;
-  padding: 15px;
+.div-terms-results{
+  max-width:50%;
+}
+
+.div-new-search{
+  display: flex;
+  align-items: center;
+}
+
+.btn-green, .btn-green:hover {
+  height: 45px;
+  margin-left: 15px;
+  padding: 12px;
   background-color: green;
   color: white;
-  border: solid 2px #151515;
+  border: solid 2px rgb(34, 34, 34);
   border-radius: 6px;
 }
 
-.btn-green:hover {
-  background-color: #00420c;
-  color: white;
-  border: solid 2px black;
-}
 
 /* Tooltip */
 
@@ -92,13 +97,6 @@
   font-size: 25px;
   cursor: pointer;
   position: relative;
-}
-
-.btn-help.fixed {
-  font-size: 35px;
-  position: fixed;
-  top: 20px;
-  right: 20px;
 }
 
 .btn-help .tooltiptext {
@@ -113,13 +111,13 @@
   right: 100%;
   top: 10%;
   font-size: 15px;
-  z-index: 1;
+  z-index: 2;
   transition: 1s ease;
 }
 
 .btn-help.tooltip-search .tooltiptext{
-  left: 100%;
-  top: 70%;
+  left: 90%;
+  top: 100%;
 }
 
 .btn-help:hover .tooltiptext {
@@ -131,12 +129,12 @@
 }
 
 #example_filter label {
-  padding: 15px;
   font-size: 15px;
 }
 
 #example_filter input {
   border-radius: 6px;
+  padding: 3px;
 }
 
 /* Input */
@@ -224,7 +222,7 @@
 
 /* Modal Popup */
 
-.my-modal {
+.my-modal, .modal-erro {
   display: none;
   position: absolute;
   z-index: 1;
@@ -357,21 +355,28 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .header-portarias {
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-green {
-    margin: 0;
-  }
+@media screen and (max-width: 500px) {
+
   #example_filter {
-    text-align: center;
-    margin-top: 100px;
+    margin-top: 10px;
   }
+  .modal-title h2 {
+    padding-left: 10px;
+  }
+
+  #example {
+    width: 100vw;
+  }
+
+  /* td:first-child, th:first-child{
+    display: none;
+  } */
 }
 
 @media screen and (max-width: 768px) {
+  .div-terms-results h3 {
+    font-size: 20px;
+  }
   .logoIfrs {
     width: 75vw;
   }

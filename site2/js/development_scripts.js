@@ -1,12 +1,9 @@
 $(document).ready(function () {
 
-
     // Close Modal
-    var modal = $(".my-modal");
-
-
     $(".fa-times").on('click', function () {
-        $(".modal-popup").hide(500);
+        $(".my-modal").hide(500);
+        $(".modal-erro").hide(500);
         return false;
     });
 
@@ -17,11 +14,15 @@ $(document).ready(function () {
     })
 
     // Fechar um por vez
-    modal.on('click', function () {
+    $(".my-modal").on('click', function () {
         $(this).hide(500);
         $(this).prev().fadeIn(500);
     })
 
+    // Modal error
+    $(".modal-erro").on('click', function () {
+        $(".modal-erro").hide(500);
+    })
 
 
     // Search
@@ -70,28 +71,22 @@ $(document).ready(function () {
 
 
     btnPesq.on('click', function () {
-        $(".ababusca").css("opacity", "0.2");
-        $("header").css("opacity", "0.2");
-        $(".modal-popup ").hide(500);
-        $(".loader").fadeIn(500);
 
-        if (this.hash !== "") {
+        var pesquisa = $("#textpesquisado").val();
+
+        if (pesquisa == "") {
+            $(".modal-erro").fadeIn(500);
+        } else {
+            $(".ababusca").css("opacity", "0.2");
+            $("header").css("opacity", "0.2");
+            $(".loader").fadeIn(500);
+
             event.preventDefault();
-            // Store hash
-            var hash = this.hash;
-
-            $('html, body').animate({
-                // scrollTop: $(hash).offset().top
-            }, 1000, function () {
-                window.location.hash = hash;
-
-                $.post(urlDocRequest, {
-                    wrdConsult: textpesq.val().trim()
-                }, function (result) {
-                    // alert(result)
-                    $("form#formulario-busca").submit();
-                })
-            });
+            $.post(urlDocRequest, {
+                wrdConsult: textpesq.val().trim()
+            }, function (result) {
+                $("form#formulario-busca").submit();
+            })
         }
     })
 
