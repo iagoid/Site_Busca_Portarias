@@ -79,7 +79,9 @@ $(document).ready(function () {
         } else {
             $(".ababusca").css("opacity", "0.2");
             $("header").css("opacity", "0.2");
-            $(".loader").fadeIn(500);
+            $(".my-modal").css("opacity", "0.2").hide(800);
+            $(".modal-erro").css("opacity", "0.2").hide(800);
+            $(".loader").fadeIn(1000);
 
             event.preventDefault();
             $.post(urlDocRequest, {

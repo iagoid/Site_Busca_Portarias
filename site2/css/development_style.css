@@ -147,12 +147,13 @@
   border-right: none;
 }
 
-.icon-search-btn {
+.btn.icon-search-btn {
   border-radius: 0 50% 50% 0;
   border: 2px solid green;
   border-left: 2px solid transparent;
   background-color: #54B054;
   transition: 1s;
+  z-index: 0;
 }
 
 .icon-search-btn:hover {
@@ -225,7 +226,7 @@
 .my-modal, .modal-erro {
   display: none;
   position: absolute;
-  z-index: 1;
+  z-index: 999;
 }
 
 .modal-popup {
