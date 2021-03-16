@@ -118,6 +118,7 @@
 .btn-help.tooltip-search .tooltiptext{
   left: 90%;
   top: 100%;
+  z-index: 998;
 }
 
 .btn-help:hover .tooltiptext {
